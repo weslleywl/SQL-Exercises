@@ -1,0 +1,14 @@
+select * From Starbound_Armors
+Where Bodypart = 'Head'
+group by [Set],bodypart,Attack,Defense,Stamina,Health
+having attack = (Select Max(Attack) From Starbound_Armors Where Bodypart = 'head')
+Union
+select * From Starbound_Armors
+Where Bodypart = 'Chest'
+group by [Set],bodypart,Attack,Defense,Stamina,Health
+having attack = (Select Max(Attack) From Starbound_Armors Where Bodypart = 'Chest')
+Union
+select * From Starbound_Armors
+Where Bodypart = 'Leg'
+group by [Set],bodypart,Attack,Defense,Stamina,Health
+having attack = (Select Max(Attack) From Starbound_Armors Where Bodypart = 'Leg')
